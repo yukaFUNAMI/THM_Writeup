@@ -1,4 +1,4 @@
-## Pickle Rick (Easy)
+## Try Hack Me Pickle Rick (Easy)
 https://tryhackme.com/room/picklerick
 
 ### 🧁nmap

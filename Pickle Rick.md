@@ -123,4 +123,4 @@ cat /root/3rd.txt
 3rd ingredients: fleeb juice
 ```
 
-😄Happy hacking. Thank you for your time
+😄Happy hacking. Thank you for your time.

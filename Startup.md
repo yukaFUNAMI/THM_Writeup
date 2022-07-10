@@ -138,7 +138,7 @@ www-data@startup:/$ ls -la /usr/bin/pkexec
 ls -la /usr/bin/pkexec
 -rwsr-xr-x 1 root root 23376 Mar 27  2019 /usr/bin/pkexec
 ```
-💪 -rwsr-xr-x
+🏴 -rwsr-xr-x
 
 ```
 www-data@startup:/$ cd tmp
@@ -167,5 +167,5 @@ whoami
 root
 ```
 
-:ramen: あじをしめている…（きちんと力がつかないのでよくない）
+:ramen: あじをしめている…（きちんと力がつかないのでよくない）。(喪version)
 

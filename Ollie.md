@@ -223,3 +223,6 @@ See the pkexec manual page for more details.
 （たすかにlinpeasも空振りだったわ）
 
 🐶🐶Thank you for your time! Happy Hacking! 🐶🐶
+
+![FZK0iKBWQAE90Vx](https://user-images.githubusercontent.com/6504854/182814554-39ee7445-936e-441d-972b-826619540b7d.jpg)
+

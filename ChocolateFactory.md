@@ -184,7 +184,7 @@ ftp> close
 ```
 ![image](https://user-images.githubusercontent.com/6504854/183288285-c93b425c-8115-4e69-a88b-2bc0a00b042e.png)
 
-![image](https://user-images.githubusercontent.com/6504854/183288321-2d6fa134-f4c8-4c0d-bada-bc061e9ea235.png)
+![image](https://user-images.githubusercontent.com/6504854/183289821-2700e0db-a974-4781-bab5-e55e1aaa328a.png)
 
 ```
 wget http://10.10.81.66/key_rev_key

@@ -125,8 +125,6 @@ tmp                     [Status: 301, Size: 319, Words: 20, Lines: 10, Duration:
 
 ![image](https://user-images.githubusercontent.com/6504854/183460144-97645622-3aa0-4552-9934-4d3c5d4a939c.png)
 
-![キャプチャ](https://user-images.githubusercontent.com/6504854/183460870-f066d248-b12e-43c6-9923-d22d877fafe6.PNG)
-
 ![キャプチャ2](https://user-images.githubusercontent.com/6504854/183460887-a739d8bb-905a-480a-9728-e69636f10309.PNG)
 
 ![キャプチャ3](https://user-images.githubusercontent.com/6504854/183460899-5c719b09-1636-4ab2-9ec5-00468a953c29.PNG)

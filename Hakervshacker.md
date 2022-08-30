@@ -57,7 +57,7 @@ Nmap done: 1 IP address (1 host up) scanned in 166.05 seconds
 
 ![image](https://user-images.githubusercontent.com/6504854/187414815-5c4b0141-66d4-4c23-b106-222766d2fd9a.png)
 
-🏴 I couldn't find this page, I stacked and checked writeups. 
+🏴 I couldn't find this page, I stcked and checked writeups. 
 
 Mmmm, if I read souce code cafully and I could have guessed the file name, extention... 
 

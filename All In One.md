@@ -321,6 +321,10 @@ cat /root/root.txt
 ```
 
 ## Learned
-# If you find nothing, search the same word of UPPERCASE or lowercase. 
+# If you find nothing, search the same word of UPPERCASE or lowercase and special characters( - _ )
+
+![image](https://user-images.githubusercontent.com/6504854/187591019-4d88c197-fafe-4489-835b-36b1857e4065.png)
+
+Thank you for letting me know! 😄
 
 Thank you for all your witeups always! I can't own root by myself. Have a nice vacation 💪😄💪

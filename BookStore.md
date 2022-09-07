@@ -37,7 +37,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
 ```
-nmap -Pn ip.thm -p- --open -min-rate=1000
+nmap -Pn ip.thm -p- --open --min-rate=1000
 
 Not shown: 65532 closed tcp ports (reset)
 PORT     STATE SERVICE

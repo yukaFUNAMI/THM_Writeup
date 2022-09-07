@@ -367,6 +367,7 @@ ffufでProxy通した（Burp）ときにsizeがでかいからかtimeoutして�
 
 ![image](https://user-images.githubusercontent.com/6504854/188610269-c3394ef2-a58c-4c5b-8e66-483be9a7863e.png)
 ![image](https://user-images.githubusercontent.com/6504854/188610601-9707f877-bb9e-48fc-a6d7-ad9e2c27f970.png)
+![3](https://user-images.githubusercontent.com/6504854/188776399-0ddbbe4e-64b2-4fe4-8231-42080ea88f18.PNG)
 
 rustbusterいってみっかー
 

@@ -312,7 +312,7 @@ e2**************************
 Ghidraとか得意じゃないんです...Reversingの問題苦手でつい....
 
 ## Omake
-Ffuf is faster than rustbuster on my machine in this time.
+Ffuf is faster than rustbuster on my machine at this time.
 ```
 rustbuster dir -u http://ip.thm:80 -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt
 ~ rustbuster v3.0.3 ~ by phra & ps1dr3x ~

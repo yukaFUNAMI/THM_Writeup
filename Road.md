@@ -109,5 +109,7 @@ Thank you for your time, Happy Hacking. 😄
 
 本当はLD_Preload?を使うはずなんすけど、またもや手抜きで。。。（いい加減権限昇格整理せねば、、、あとWindows）
 
+☁️☁️☁️
+
 
 

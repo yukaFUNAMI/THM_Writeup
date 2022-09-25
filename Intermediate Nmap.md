@@ -62,7 +62,7 @@ $ cat flag.txt
 flag{2**********************************}
 ```
 
-Thank you for Nmap Senapai, may live foever! I always belong with you! 🥰🥰🥰
+Thank you for Nmap Senpai, may live foever! I always belong with you! 🥰🥰🥰
 
 Thank you for your time. 😄
 

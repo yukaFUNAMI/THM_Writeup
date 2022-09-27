@@ -153,3 +153,13 @@ Thank you for your time. Happy Hacking 🌏🌏🌏
 
 同じ時代に生まれた命、仲良く生きていきたいものですね。 🙏
 
+# Omake
+
+http://thisiszzzombie.blogspot.com/2011/12/webdav-xampp-1.html
+
+![image](https://user-images.githubusercontent.com/6504854/192498776-342c01ee-1eb6-4e34-be81-299f1ee96290.png)
+
+I couldn't figire out basic auth credential or its cue, some writeups says that's default credential of xampp. 🤔🤔🤔
+
+
+

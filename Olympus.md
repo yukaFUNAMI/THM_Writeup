@@ -263,8 +263,7 @@ uid=0(root) gid=0(root) groups=0(root),33(www-data),7777(web)
 
 cat /root/root.flag
 
-find /etc -type f | xargs grep flag{ 2>/dev/null
-find /etc -type f | xargs grep flag{ 2>/dev/null
+grep -ri "flag{" /etc
 /etc/ssl/private/.b0nus.fl4g:flag{Y***************!}
 ```
 

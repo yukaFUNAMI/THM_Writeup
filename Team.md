@@ -70,8 +70,6 @@ gyles:x:1001:1001::/home/gyles:/bin/bash
 ftpuser:x:1002:1002::/home/ftpuser:/bin/sh
 ```
 
-![image](https://user-images.githubusercontent.com/6504854/194690815-ce494dcd-640b-4835-95eb-600fee7d4d75.png)
-
 🚩 ffuf scaned via LFI list and found ssh_conf files. 
 
 page=/home/dale/.ssh/id_rsa and page=/home/gyles/.ssh/id_rsa couldn't find ssh keys 😞

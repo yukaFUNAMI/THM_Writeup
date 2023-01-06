@@ -226,3 +226,4 @@ See the pkexec manual page for more details.
 
 ![FZK0iKBWQAE90Vx](https://user-images.githubusercontent.com/6504854/182814554-39ee7445-936e-441d-972b-826619540b7d.jpg)
 
+May he rest in peace, Ollie. 

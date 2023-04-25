@@ -144,6 +144,6 @@ It will lose in about 1 minute.Just return the shell in backup.inc.php
 ![image](https://user-images.githubusercontent.com/6504854/234356370-4d90b37e-9c0f-4d0c-834d-af3ccde4ef2b.png)
 
 
-Pwncatが使いこなせない。もさっとするのはどして？
-Nemui... 😴
+Pwncatが使いこなせない。
+Nemui... 😴　ねむいのにビールものみたい。ねむい。
 

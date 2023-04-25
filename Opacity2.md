@@ -65,6 +65,7 @@ curl http://10.10.53.82 -L
 😢 I checked SQLi and I couldn't bypass. Also not admin/admin credential. 
 
 ![スクリーンショット_2023-04-24_23-44-03](https://user-images.githubusercontent.com/6504854/234031738-633f1cc7-bd10-4520-8ac9-fab505165a6f.png)
+
 I did another fuzz and found /cloud dir.
 
 ![スクリーンショット_2023-04-24_23-32-19](https://user-images.githubusercontent.com/6504854/234028415-053e6e23-6a49-4f18-979e-8995fa38aa43.png)

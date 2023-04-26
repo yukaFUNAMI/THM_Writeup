@@ -244,5 +244,16 @@ find / -name user.txt 2>/dev/null
 /home/alison/user.txt
 ```
 
-
 #### 13 Escalate privileges and obtain root.txt
+```
+alison@ubuntu:/home/dark$ sudo -l
+[sudo] password for alison: 
+Matching Defaults entries for alison on ubuntu:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User alison may run the following commands on ubuntu:
+    (ALL : ALL) ALL
+```
+
+Thank you for your time! Enjoy!

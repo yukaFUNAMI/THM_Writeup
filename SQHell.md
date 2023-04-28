@@ -69,6 +69,11 @@ Table: flag
 ```
 
 #### 3
+
+Registerできないので、ソースを見るとregister/user-checkに飛ぶようなので、そちらを確認する。
+
+![image](https://user-images.githubusercontent.com/6504854/235073351-4790508f-0804-4593-8144-02c2eba69112.png)
+
 ![image](https://user-images.githubusercontent.com/6504854/234926996-5433dd7a-c221-42da-ba16-760861ec12d1.png)
 
 ![image](https://user-images.githubusercontent.com/6504854/234927091-e49433eb-dd0d-439e-bf9e-a302d0df5fa8.png)

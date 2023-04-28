@@ -137,7 +137,9 @@ Table: users
 | 1  | password | admin    |
 +----+----------+----------+
 ```
-usersテーブルは3カラムでflagはない。union selectを元にたぶんflagテーブルかフィールドflagを含むテーブルがあるのではというあてずっぽうでガチャガチャする。
+usersテーブルは3カラムでflagはない。今までの結果からおそらくflagテーブル(id,flagの2カラム)があるのではというあてずっぽうでガチャガチャする。
+
+SQLmapの結果のUnionSelectの文を元にガチャガチャする。
 
 ![image](https://user-images.githubusercontent.com/6504854/234960030-1ab47f3a-d563-4c3d-8c07-c497bffbce08.png)
 

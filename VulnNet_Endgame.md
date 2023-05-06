@@ -80,7 +80,7 @@ ________________________________________________
 
 ![image](https://user-images.githubusercontent.com/6504854/236607683-bff21815-5b2e-40c2-829e-6b3996937bda.png)
 
-こんな感じで、問題からadmin1が最優先だろというあたりで。（これが Rabbit Hole）
+こんな感じ、問題からadmin1が最優先だろというあたりで。
 
 ```
 ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u http://admin1.vulnnet.thm/FUZZ -fc 307

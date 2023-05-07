@@ -198,6 +198,6 @@ publish XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub "SYS"
 https://securitycafe.ro/2022/04/08/iot-pentesting-101-how-to-hack-mqtt-the-standard-for-iot-messaging/
 
 こちらの図がわかりやすい。
-今回の場合、MQTTBloker（サーバ）がなぜかバックドアIDとコマンドを配信してくれてた？
+今回の場合、MQTT Broker（サーバ）がなぜかバックドアIDとコマンドを配信してくれてた？
 
 

@@ -148,8 +148,6 @@ Logging: off, Recording: off, Pacing: 0
 
 ![image](https://user-images.githubusercontent.com/6504854/236678248-ef0391ea-3f28-4215-82f6-ed5868d47632.png)
 
-![image](https://user-images.githubusercontent.com/6504854/236678879-554deeb0-1c25-40b8-9ae7-d83fcd300476.png)
-
 この電文を元にopicとPayloadの組み合わせを考えいれてみた。
 ```
 {"id":"cdd1b1c0-1c40-4b0f-8e22-61b357548b7d","registered_commands":["HELP","CMD","SYS"],"pub_topic":"U4vyqNlQtf/0vozmaZyLT/15H9TF6CHg/pub","sub_topic":"XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub"}

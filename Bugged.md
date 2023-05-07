@@ -193,4 +193,11 @@ publish XD2rfR9Bez/GqMpRSEobh/TvLQehMg0E/sub "SYS"
 
 うーん。B64して遊んでたら休みが終わった。。。MQTTの仕様はなんもわかってない。
 
+### 🦋 Omake
+
+https://securitycafe.ro/2022/04/08/iot-pentesting-101-how-to-hack-mqtt-the-standard-for-iot-messaging/
+
+こちらの図がわかりやすい。
+今回の場合、MQTTBloker（サーバ）がなぜかバックドアIDとコマンドを配信してくれてた？
+
 

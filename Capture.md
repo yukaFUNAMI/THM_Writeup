@@ -1,4 +1,4 @@
-### :ramen: Capture!
+# :ramen: Capture!
 https://tryhackme.com/room/capture
 
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/94946a2e-17b6-409d-a6e6-6fd9e2a1a2bb)
@@ -164,7 +164,7 @@ https://tryhackme.com/room/capture
 複数スレッドで同時にPOSTするとリキャプチャがずれてダメ。1スレで気長にやるしかない。
 
 
-### :ramen::ramen: Okawari
+# :ramen::ramen: Okawari
 高速化を図るべくRust。（ほぼちゃっとさん）
 
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/4185513e-7ac5-4803-9ebb-cd399cfbd364)

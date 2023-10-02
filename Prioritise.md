@@ -95,8 +95,7 @@ Get the flag value same way.
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/eb8ffcbe-8e91-4c11-88a0-8edf14aa863f)
 
 今回はマルチのCURLで高速化をはかった。
-またもちゃっとGPTにつくってもらった。
-好みを学習したらしく最初と最後のMSGを自動でいれてくれた。感謝
+またもちゃっとGPTにつくってもらった。感謝
 
 ```
 <?php

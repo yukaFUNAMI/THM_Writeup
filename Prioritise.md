@@ -61,8 +61,8 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/b6cbdf7a-5c4a-4b52-83d1-e3c3834ffd04)
 
 ### Table Name Length 4
-![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/328a6ab0-74cf-4c18-a943-4bd78475da82)
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/967ed28f-52a6-43d5-986a-65ce0e2afacb)
+![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/328a6ab0-74cf-4c18-a943-4bd78475da82)
 
 ### Table Name flag
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/974cadf4-75c3-4540-abda-ee61662fce14)

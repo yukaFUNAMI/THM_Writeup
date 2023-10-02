@@ -36,9 +36,9 @@ I saw it's a SQLi problem and found SQLi.
 
 Table has 4 columns
 
-Sqlmapでとれなかったのでしかたなくブラインドでやる（苦手😥）
+Sqlmapでとれなかったのでしかたなくブラインドでやる😥
 
-I couldn't get credentials with Sqlmap, so I had to do it with boolean based blind (poor).
+I couldn't get credentials with Sqlmap, so I had to do it with boolean based blind.
 
 ### Payload (Boolean based)
 True(order by title)
@@ -50,6 +50,8 @@ False(order by date)
 本当はレスポンスコードかContentLengthが異なるようにPayloadを組みたかったができなかった（TrueもFalseも同じLengthなので内容を確認する必要がある。これが地獄の始まり）。UNION SELECTもうまくできず。😞
 
 I wanted to make the Payload so that the response code or Content Length was different, but I couldn't do it and UNION SELECT didn't work either.Since both True and False have the same Length, it's necessary to check the contents.
+
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md
 
 ### DB SQLite 3.XX
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/beed55e7-ccea-4f06-8d74-2f8be9eb1978)
@@ -70,8 +72,14 @@ I wanted to make the Payload so that the response code or Content Length was dif
 
 Use the Intruder by one character and identify the letter from the response.
 
+全部やってみるとわかるが、もう一方のテーブル名はtodosで４カラム。flagは1カラム。
+
+If you do it all, you'll see that the other table name is todos and has 4 columns. flag has 1 column.
+
 ### flag
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/f6001604-2f12-4476-a94b-e81e4b6989bf)
 
 同じ要領でflag特定。
 Get flag in the same way.
+
+🚩 Congratulations! Thank you for your time, Happy hacking. 🌕🍡🌕🍡🌕🍡

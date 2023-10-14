@@ -13,7 +13,7 @@ https://tryhackme.com/room/capture
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/22ffffaf-6fcb-4096-bb1c-aaaa1e3ca364)
 
 🤔 Error: The user 'test' does not exist とありヒントにErrorの内容を読むようにかいてある。
-とりまPHPでつくる。ほとんどちゃっとさんからコピペしたのに半日かかってしまった。つらい。。。
+PHPでつくる。ほとんどちゃっとさんからコピペしたのに半日かかってしまった。つらい。。。
 
 ```
 <?php

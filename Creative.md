@@ -147,9 +147,12 @@ fi
 https://www.kali.org/blog/xz-backdoor-getting-started/
 </a>
 
+
 🍜 Not Vuln.
+
 
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/38f5c9db-055c-4940-9a2e-9f9c7571e9b5)
 
 二刀流とはいかなかった。。ちゅるちゅるちゅるちゅる。。。
 
+🍜 Thank you for your time. Happy Hacking. ちゅるちゅるちゅるちゅる。。。

@@ -116,4 +116,40 @@ https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/ae9e3bd9-65b1-4681-9cc6-4b1551f3a7e9)
 
 ## 🍜🍜 omake
+![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/46a8aed7-7328-4160-97f4-ffa4c2d0b6fb)
+
+de.sh
+
+```
+#! /bin/bash
+
+set -eu
+
+# find path to liblzma used by sshd
+path="$(ldd $(which sshd) | grep liblzma | grep -o '/[^ ]*')"
+
+# does it even exist?
+if [ "$path" == "" ]
+then
+	echo probably not vulnerable
+	exit
+fi
+
+# check for function signature
+if hexdump -ve '1/1 "%.2x"' "$path" | grep -q f30f1efa554889f54c89ce5389fb81e7000000804883ec28488954241848894c2410
+then
+	echo probably vulnerable
+else
+	echo probably not vulnerable
+fi
+```
+<a href="https://www.kali.org/blog/xz-backdoor-getting-started/"> 
+https://www.kali.org/blog/xz-backdoor-getting-started/
+</a>
+
+🍜 Not Vuln.
+
+![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/38f5c9db-055c-4940-9a2e-9f9c7571e9b5)
+
+二刀流とはいかなかった。。ちゅるちゅるちゅるちゅる。。。
 

@@ -1,3 +1,6 @@
+## 🍜 Creative
+<a href="https://tryhackme.com/r/room/creative">https://tryhackme.com/r/room/creative</a>
+
 ## 🍜 Enum
 ```
 nmap -Pn -sS 10.10.153.72 -p- --min-rate 5000 -v
@@ -103,6 +106,7 @@ This page has SSRF. I found open port.
 ## 🍜 Root
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/e8b3d1e3-9c7a-4949-b856-e16a1f0bf812)
 
+🍜 I got saad's pass.
 
 <a href="https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/">
 https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
@@ -111,7 +115,7 @@ https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
 
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/017b4c3e-2ff6-460d-a535-49264a609753)
 
-![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/ae32d1ee-fd41-4952-bcfb-69677a194422)
+![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/26b1d84d-56dd-461c-bb34-dd6e55997282)
 
 ![image](https://github.com/yukaFUNAMI/THM_Writeup/assets/6504854/ae9e3bd9-65b1-4681-9cc6-4b1551f3a7e9)
 
